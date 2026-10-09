@@ -1,0 +1,28 @@
+
+# Maven build output
+target/
+
+# IDE files
+.nbproject/private/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Local environment settings
+.env
+.env.*
+!.env.example
+
+# Java compiled files
+*.class
+
+# Database backups and exports
+*.sql
+*.dump
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyPilot – Smart Study Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Newsreader:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section id="auth" hidden>
+  <div class="auth-hero">
+    <h1>Study less in a panic.<br>Remember more on exam day.</h1>
+    <p>Keep your notes in one place, turn them into flashcards, and revise only what you don't know yet.</p>
+    <ul><li>Organised notes by subject</li><li>Flip-card revision mode</li><li>Progress you can see</li></ul>
+  </div>
+  <div class="auth-box">
+    <div class="brand dark">StudyPilot</div>
+    <div class="tabs"><button id="tabLogin" class="on" type="button">Sign in</button><button id="tabReg" type="button">Create account</button></div>
+    <form id="authForm" data-mode="login">
+      <div id="regFields" hidden><label>Full name<input name="name" autocomplete="name"></label></div>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Password<input name="password" type="password" required minlength="6" autocomplete="current-password"></label>
+      <button class="btn" id="authBtn">Sign in</button>
+    </form>
+  </div>
+</section>
+
+<div id="app" hidden>
+  <aside>
+    <div class="brand">StudyPilot</div>
+    <nav>
+      <button data-v="dashboard">Dashboard</button>
+      <button data-v="notes">Notes</button>
+      <button data-v="cards">Flashcards</button>
+      <button data-v="revise">Revise</button>
+    </nav>
+    <button class="logout" id="logout">Sign out</button>
+  </aside>
+  <div class="content">
+    <header>
+      <input id="search" type="search" placeholder="Search notes and flashcards">
+      <div class="me"><span id="avatar"></span><b id="uname"></b></div>
+    </header>
+    <main id="main"></main>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
