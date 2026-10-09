@@ -1,21 +1,23 @@
+
 package com.studyassistant;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/** Connects to the MySQL/MariaDB server that WampServer runs. Change these if your WAMP setup differs. */
 public class DB {
-    static final String URL = "DB_URL";
-    static final String USER = "DB_USER";
-    static final String PASS = "DB_PASSWORD";   // WampServer default: empty password
 
     public static Connection get() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("MySQL driver not found", e);
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String pass = System.getenv("DB_PASSWORD");
+
+        if (url == null || user == null || pass == null) {
+            throw new SQLException("Database environment variables are missing");
         }
-        return DriverManager.getConnection(URL, USER, PASS);
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        return DriverManager.getConnection(url, user, pass);
     }
 }
